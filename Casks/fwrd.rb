@@ -3,7 +3,7 @@ cask "fwrd" do
   name "fwrd"
   desc "A terminal-based RSS aggregator built with Go and Charm.sh tools"
   homepage "https://github.com/pders01/fwrd"
-  version "1.44.4"
+  version "1.54.1"
 
   livecheck do
     skip "Auto-generated on release."
@@ -14,22 +14,22 @@ cask "fwrd" do
   on_macos do
     on_intel do
       url "https://github.com/pders01/fwrd/releases/download/v#{version}/fwrd_#{version}_darwin_amd64.tar.gz"
-      sha256 "1bebfef3880d8020a9cd5d620cba2bd9222cafbf08420d054d33715d8df37d2d"
+      sha256 "aa839e9899632d29e6834da301e4005c846c4668f7cf7e32fa71ecd08286cf2c"
     end
     on_arm do
       url "https://github.com/pders01/fwrd/releases/download/v#{version}/fwrd_#{version}_darwin_arm64.tar.gz"
-      sha256 "86e6ae65483ef0c89e32f39dd4def27d8f82f7399562075cb487c216e9f3ebdd"
+      sha256 "8e6b7b6fc5522550e0b107691031a7c50c3085088976a52d243c40aa8be2e08c"
     end
   end
 
   on_linux do
     on_intel do
       url "https://github.com/pders01/fwrd/releases/download/v#{version}/fwrd_#{version}_linux_amd64.tar.gz"
-      sha256 "95450fb09467596e52276e9cd486d0fc985f9859afe16de93ef2243f09290f86"
+      sha256 "637f7afa169440c1824b99511ebdb24271e58138fdf95fc5f973a842b5ce3dff"
     end
     on_arm do
       url "https://github.com/pders01/fwrd/releases/download/v#{version}/fwrd_#{version}_linux_arm64.tar.gz"
-      sha256 "a67ba60faf8f4c5409be8bb0ca9dff330b6b06504df1c61fbb90f5b1847ac819"
+      sha256 "f54e2f8c0cb08499a5875b4d85116772229fbfff80e6817478e9efb33fe9d39c"
     end
   end
 
