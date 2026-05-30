@@ -3,7 +3,7 @@ cask "fwrd" do
   name "fwrd"
   desc "A terminal-based RSS aggregator built with Go and Charm.sh tools"
   homepage "https://github.com/pders01/fwrd"
-  version "1.65.1"
+  version "1.66.0"
 
   livecheck do
     skip "Auto-generated on release."
@@ -14,30 +14,29 @@ cask "fwrd" do
   on_macos do
     on_intel do
       url "https://github.com/pders01/fwrd/releases/download/v#{version}/fwrd_#{version}_darwin_amd64.tar.gz"
-      sha256 "df26055dc8b34983dd474e0c74f04b307eea204604b114a449435b78692cd40c"
+      sha256 "0f9b12839a11d527c4cc50699317eb334005e2f444f2add46d1273b564e3b72b"
     end
     on_arm do
       url "https://github.com/pders01/fwrd/releases/download/v#{version}/fwrd_#{version}_darwin_arm64.tar.gz"
-      sha256 "665fd2557686ae622296dadf7ea2bb6120a403d8e2bab7f8895c2fb8c31fe5d2"
+      sha256 "46694249f74f4bfeffe044b2d1a68be3c0cf42a13c2a9d5f24f76042fc3b88c2"
     end
   end
 
   on_linux do
     on_intel do
       url "https://github.com/pders01/fwrd/releases/download/v#{version}/fwrd_#{version}_linux_amd64.tar.gz"
-      sha256 "0edff28d08d8dd44215bbed9d4b1945e3cdf522ea891c7d7d8da297eab398388"
+      sha256 "f3325a2232516cd9940dbd3f6ca99c5862ed0cc6e0ba07e976ea0f08e3802a41"
     end
     on_arm do
       url "https://github.com/pders01/fwrd/releases/download/v#{version}/fwrd_#{version}_linux_arm64.tar.gz"
-      sha256 "4250439c8a8387d663f05bdd607790c4d24b7eba56e31a772b6a54e8c88b1633"
+      sha256 "1469cd9e1dc7fc9bcecc2cad9f39a48ebba31fabdd4b1f2e34d1bb1cab2a0921"
     end
   end
 
-  caveats do
-    "On macOS, binaries from third-party taps may be quarantined."
-    "If needed, remove quarantine (adjust the path as needed):"
-    "  xattr -dr com.apple.quarantine /opt/homebrew/bin/fwrd"
-    "  xattr -dr com.apple.quarantine /usr/local/bin/fwrd"
+  postflight do
+    if OS.mac?
+      system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/fwrd"]
+    end
   end
 
   # No zap stanza required
